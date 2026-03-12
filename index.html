@@ -151,6 +151,47 @@
         </div>
     </section>
 
+    <!-- SECTION 1: STARTUP ECOSYSTEM MAP OF INDIA -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title center">Startups Emerging Across Bharat</h2>
+                <p class="center">Connecting innovation from Tier-1 hub to Tier-2 & Tier-3 horizons.</p>
+            </div>
+            <div class="map-visual-container glass animate-on-scroll">
+                <div class="india-map-wrapper">
+                    <img src="images/india-map.png" alt="India Startup Map" class="main-map-img">
+                    
+                    <!-- City Nodes -->
+                    <div class="city-node" style="top: 75%; left: 35%;" data-city="Bangalore" data-startups="EcoKart, GreenDrive, DevFlow">
+                        <div class="node-ring"></div><div class="node-dot"></div>
+                    </div>
+                    <div class="city-node" style="top: 45%; left: 40%;" data-city="Delhi" data-startups="FinBuddy, HealthNet, EduPulse">
+                        <div class="node-ring"></div><div class="node-dot"></div>
+                    </div>
+                    <div class="city-node" style="top: 65%; left: 30%;" data-city="Pune" data-startups="AutoSim, VoltRX, AgriLink">
+                        <div class="node-ring"></div><div class="node-dot"></div>
+                    </div>
+                    <div class="city-node" style="top: 50%; left: 32%;" data-city="Jaipur" data-startups="CraftKnot, SolarGrid, TourMate">
+                        <div class="node-ring"></div><div class="node-dot"></div>
+                    </div>
+                    <div class="city-node" style="top: 60%; left: 42%;" data-city="Indore" data-startups="CleanCity, LogiSmart, FoodTrack">
+                        <div class="node-ring"></div><div class="node-dot"></div>
+                    </div>
+                    <div class="city-node" style="top: 58%; left: 30%;" data-city="Ahmedabad" data-startups="TextilePro, ShopEasy, FinDock">
+                        <div class="node-ring"></div><div class="node-dot"></div>
+                    </div>
+
+                    <!-- Map Tooltip -->
+                    <div id="mapTooltip" class="map-tooltip glass">
+                        <h4 id="tooltipCity">City</h4>
+                        <p id="tooltipStartups">Startups list...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- HOW IT WORKS — FUNDING PIPELINE -->
     <section class="pipeline-section" id="how-it-works">
         <div class="container">
@@ -238,6 +279,29 @@
         </div>
     </section>
 
+    <!-- SECTION 2: FOUNDER STORY SPOTLIGHT -->
+    <section class="spotlight-story-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title center">Founder Spotlight</h2>
+            </div>
+            <div class="story-grid-editorial animate-on-scroll">
+                <div class="story-image-wrap glass tilt-element">
+                    <img src="images/founder-spotlight.png" alt="Ananya Sharma Portrait" class="editorial-img">
+                </div>
+                <div class="story-content-wrap glass">
+                    <span class="story-eyebrow">FEATURED JOURNEY</span>
+                    <h3>Ananya Sharma</h3>
+                    <p class="story-founder-role">Founder of EcoKart</p>
+                    <blockquote class="story-quote">
+                        "EcoKart started as a small sustainable marketplace and is now helping eco-friendly brands reach customers across India. Karo Pitch was the bridge we needed to go national."
+                    </blockquote>
+                    <a href="#" class="btn btn-outline">Read Full Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FEATURED STARTUPS & LEADERBOARD -->
     <section class="featured-section" id="startups">
         <div class="container grid-featured">
@@ -314,6 +378,61 @@
                             <span class="lb-val">150 Upvotes</span>
                         </li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: STARTUP STAGE TIMELINE -->
+    <section class="journey-timeline-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title center">The Startup Journey</h2>
+                <p class="center">Mapping the trajectory from first spark to global scale.</p>
+            </div>
+            <div class="timeline-container animate-on-scroll">
+                <div class="timeline-bar"></div>
+                <div class="timeline-stages">
+                    <div class="stage-point" data-stage="Idea">
+                        <div class="point-glow"></div>
+                        <span class="stage-label">Idea</span>
+                        <div class="stage-card glass">
+                            <h4>LocalTaste</h4>
+                            <p>Conceptualizing regional flavor networks in Bihar.</p>
+                        </div>
+                    </div>
+                    <div class="stage-point" data-stage="MVP" id="mvpStage">
+                        <div class="point-glow"></div>
+                        <span class="stage-label">MVP</span>
+                        <div class="stage-card glass">
+                            <h4>AgroLink</h4>
+                            <p>Live beta connecting 500 farmers in Nashik.</p>
+                        </div>
+                    </div>
+                    <div class="stage-point" data-stage="Revenue">
+                        <div class="point-glow"></div>
+                        <span class="stage-label">Revenue</span>
+                        <div class="stage-card glass">
+                            <h4>EcoKart</h4>
+                            <p>Scaling sustainable delivery to 12 cities.</p>
+                        </div>
+                    </div>
+                    <div class="stage-point active" data-stage="Seed">
+                        <div class="point-glow"></div>
+                        <span class="stage-label">Seed Funding</span>
+                        <div class="stage-card glass">
+                            <h4>FinBuddy</h4>
+                            <p>Recently closed $2M to digitize MSME credit.</p>
+                        </div>
+                    </div>
+                    <div class="stage-point" data-stage="Scale">
+                        <div class="point-glow"></div>
+                        <span class="stage-label">Scale</span>
+                        <div class="stage-card glass">
+                            <h4>VoltRX</h4>
+                            <p>Series A leader in rural HealthTech diagnostics.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

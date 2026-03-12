@@ -18,7 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
         counters: document.querySelectorAll(".ks-num[data-count]"),
         tiltItems: document.querySelectorAll(".tilt-element"),
         cursorGlow: document.getElementById("cursorGlow"),
-        magneticBtns: document.querySelectorAll(".btn")
+        magneticBtns: document.querySelectorAll(".btn"),
+        cityNodes: document.querySelectorAll(".city-node"),
+        mapTooltip: document.getElementById("mapTooltip"),
+        tooltipCity: document.getElementById("tooltipCity"),
+        tooltipStartups: document.getElementById("tooltipStartups"),
+        timelineStages: document.querySelectorAll(".stage-point")
     };
 
     // --- Cursor Glow Evolution ---
@@ -199,4 +204,31 @@ document.addEventListener("DOMContentLoaded", () => {
             elements.mobileToggle?.classList.remove("active");
         });
     });
+
+    // --- 9. Ecosystem Map Hub ---
+    elements.cityNodes.forEach(node => {
+        node.addEventListener("mouseenter", () => {
+            const city = node.dataset.city;
+            const startups = node.dataset.startups;
+            
+            if (elements.tooltipCity) elements.tooltipCity.textContent = city;
+            if (elements.tooltipStartups) elements.tooltipStartups.textContent = startups;
+            elements.mapTooltip?.classList.add("visible");
+        });
+
+        node.addEventListener("mouseleave", () => {
+            elements.mapTooltip?.classList.remove("visible");
+        });
+    });
+
+    // --- 10. Startup Journey Timeline Engine ---
+    elements.timelineStages.forEach(stage => {
+        stage.addEventListener("mouseenter", () => {
+            elements.timelineStages.forEach(s => s.classList.remove("active"));
+            stage.classList.add("active");
+        });
+    });
+
+    // --- System Startup ---
+    console.log("🚀 Karo Pitch Advanced Ecosystem Online");
 });
