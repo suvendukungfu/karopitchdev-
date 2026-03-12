@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karo Pitch — Premium Startup Discovery</title>
+    <meta name="description" content="Discover and pitch to India's top investors. Focused on founders from Tier-2 and Tier-3 cities.">
+    <!-- Typography: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="spatial-ui">
+
+    <!-- Ambient Environment -->
+    <div class="spatial-bg-wrapper">
+        <div class="glow-orb orb-primary"></div>
+        <div class="glow-orb orb-secondary"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar glass" id="navbar">
+        <div class="container nav-wrap">
+            <a href="#" class="nav-logo">
+                <span class="logo-mark">▲</span> Karo Pitch
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#startups">Startups</a>
+                <a href="#investors">Investors</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#community">Community</a>
+                <a href="#about">About</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#" class="btn btn-primary neon-glow">Apply to Pitch</a>
+                <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-controls="navLinks">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-container">
+            <div class="hero-text-content">
+                <p class="hero-eyebrow animate-up">Discover the next generation of founders building from Bharat.</p>
+                <h1 class="hero-title animate-up">Pitch Your Startup to <br><span class="highlight-text">India’s Top Investors</span></h1>
+                <p class="hero-subtext animate-up">Karo Pitch helps founders across India pitch their startups directly to investors and raise funding.</p>
+                <div class="hero-btns animate-up">
+                    <a href="#" class="btn btn-primary btn-lg neon-glow">Apply to Pitch</a>
+                    <a href="#startups" class="btn btn-outline btn-lg">Explore Startups</a>
+                </div>
+            </div>
+
+            <!-- DISCOVERY RADAR -->
+            <div class="radar-discovery-engine animate-fade">
+                <div class="radar-wrap">
+                    <div class="radar-base">
+                        <div class="radar-grid"></div>
+                        <div class="radar-sweep"></div>
+                        
+                        <!-- Interactive Startup Nodes -->
+                        <div class="node-point tilt-element" data-startup="EcoKart" data-cat="D2C" data-stage="Seed" data-loc="Indore" data-votes="245" data-founder="Ananya Sharma" data-pitch="Sustainable supply chain platform for eco-friendly brands.">
+                            <div class="node-core"></div>
+                            <div class="node-echo"></div>
+                        </div>
+
+                        <div class="node-point tilt-element" style="top: 30%; right: 20%;" data-startup="AgroLink" data-cat="AgriTech" data-stage="Pre-Seed" data-loc="Nashik" data-votes="180" data-founder="Rajiv Verma" data-pitch="Direct-to-market platform connecting marginalized farmers to urban consumers.">
+                            <div class="node-core"></div>
+                            <div class="node-echo"></div>
+                        </div>
+
+                        <div class="node-point tilt-element" style="bottom: 25%; left: 35%;" data-startup="FinBuddy" data-cat="FinTech" data-stage="Angel" data-loc="Patna" data-votes="150" data-founder="Siddharth Jha" data-pitch="AI-driven credit scoring for MSMEs in Tier-2 and Tier-3 cities.">
+                            <div class="node-core"></div>
+                            <div class="node-echo"></div>
+                        </div>
+
+                        <div class="radar-center">
+                            <div class="center-icon">▲</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hover Info Panel (Dynamic) -->
+                <div class="hover-info-panel" id="hoverPanel">
+                    <h4 id="hp-name">Startup</h4>
+                    <div class="hp-meta">
+                        <span id="hp-cat">Category</span> • <span id="hp-stage">Stage</span>
+                    </div>
+                    <div class="hp-footer">
+                        <span id="hp-loc">Location</span>
+                        <span class="hp-votes">▲ <span id="hp-votes">0</span> Upvotes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOUNDER SPOTLIGHT PANEL (Overlay) -->
+        <div class="spotlight-overlay" id="spotlightOverlay">
+            <div class="spotlight-card glass tilt-element">
+                <button class="close-btn" id="closeSpotlight">&times;</button>
+                <div class="spotlight-header">
+                    <div class="founder-avatar"></div>
+                    <div class="founder-info">
+                        <h3 id="sl-founder">Founder Name</h3>
+                        <p id="sl-startup">Startup Name</p>
+                    </div>
+                </div>
+                <div class="spotlight-tags">
+                    <span class="tag" id="sl-cat">Category</span>
+                    <span class="tag" id="sl-stage">Stage</span>
+                </div>
+                <div class="spotlight-body">
+                    <h5>Pitch Summary</h5>
+                    <p id="sl-pitch">Pitch summary here...</p>
+                </div>
+                <div class="spotlight-footer">
+                    <button class="btn btn-primary btn-block neon-glow">Request Pitch Deck</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+        <div class="container grid-2">
+            <div class="about-content animate-on-scroll">
+                <h2 class="section-title">Bridging the Gap</h2>
+                <p>Thousands of founders across India are building powerful businesses but lack access to investors.</p>
+                <p>Karo Pitch bridges this gap by creating curated pitch events and a discovery platform connecting founders and investors.</p>
+            </div>
+            <div class="about-visual animate-on-scroll">
+                <div class="spatial-card glass tilt-element">
+                    <div class="card-icon">🤝</div>
+                    <h3>Curated Connections</h3>
+                    <p>Designed for founders from Bharat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS — FUNDING PIPELINE -->
+    <section class="pipeline-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title center">Funding Pipeline</h2>
+                <p class="center">The journey from application to scale.</p>
+            </div>
+
+            <div class="pipeline-visual animate-on-scroll">
+                <div class="flow-line"></div>
+                <div class="pipeline-row">
+                    <!-- Step 1 -->
+                    <div class="pipeline-step">
+                        <div class="step-icon-wrap tilt-element" title="Submit your deck for initial screening">
+                            <span class="step-icon">📄</span>
+                            <div class="step-glow"></div>
+                        </div>
+                        <h3>Apply with deck</h3>
+                        <p>Submit your startup vision.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="pipeline-step">
+                        <div class="step-icon-wrap tilt-element" title="Selected startups are vetted by experts">
+                            <span class="step-icon">🔍</span>
+                            <div class="step-glow"></div>
+                        </div>
+                        <h3>Get shortlisted</h3>
+                        <p>Vetted by KaroStartup.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="pipeline-step">
+                        <div class="step-icon-wrap tilt-element" title="Live presentation to a panel of investors">
+                            <span class="step-icon">🎤</span>
+                            <div class="step-glow"></div>
+                        </div>
+                        <h3>Pitch live</h3>
+                        <p>Present directly to investors.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="pipeline-step">
+                        <div class="step-icon-wrap tilt-element" title="Finalize funding and begin scaling">
+                            <span class="step-icon">🚀</span>
+                            <div class="step-glow"></div>
+                        </div>
+                        <h3>Raise & Scale</h3>
+                        <p>Close funding and scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO CAN APPLY -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title center">Who Can Apply</h2>
+            </div>
+            <div class="cat-grid">
+                <div class="cat-card glass tilt-element animate-on-scroll">
+                    <span class="cat-emoji">🛍️</span>
+                    <h3>D2C Brands</h3>
+                </div>
+                <div class="cat-card glass tilt-element animate-on-scroll">
+                    <span class="cat-emoji">📱</span>
+                    <h3>Consumer Startups</h3>
+                </div>
+                <div class="cat-card glass tilt-element animate-on-scroll">
+                    <span class="cat-emoji">🏭</span>
+                    <h3>MSMEs</h3>
+                </div>
+                <div class="cat-card glass tilt-element animate-on-scroll">
+                    <span class="cat-emoji">☁️</span>
+                    <h3>SaaS Startups</h3>
+                </div>
+                <div class="cat-card glass tilt-element animate-on-scroll">
+                    <span class="cat-emoji">⚙️</span>
+                    <h3>Manufacturing</h3>
+                </div>
+                <div class="cat-card glass tilt-element animate-on-scroll">
+                    <span class="cat-emoji">🇮🇳</span>
+                    <h3>Bharat-focused</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED STARTUPS & LEADERBOARD -->
+    <section class="featured-section" id="startups">
+        <div class="container grid-featured">
+            <div class="featured-list">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Featured Startups</h2>
+                </div>
+                <div class="discovery-grid">
+                    <!-- Card 1 -->
+                    <div class="startup-card glass tilt-element animate-on-scroll">
+                        <div class="sc-header">
+                            <h3>EcoKart</h3>
+                            <span class="sc-category">D2C</span>
+                        </div>
+                        <p>Sustainable supply chain platform for eco-friendly brands.</p>
+                        <div class="sc-footer">
+                            <button class="upvote-btn">▲ Upvote</button>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="startup-card glass tilt-element animate-on-scroll">
+                        <div class="sc-header">
+                            <h3>AgroLink</h3>
+                            <span class="sc-category">AgriTech</span>
+                        </div>
+                        <p>Farm supply chain platform for Bharat's farmers.</p>
+                        <div class="sc-footer">
+                            <button class="upvote-btn">▲ Upvote</button>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="startup-card glass tilt-element animate-on-scroll">
+                        <div class="sc-header">
+                            <h3>FinBuddy</h3>
+                            <span class="sc-category">FinTech</span>
+                        </div>
+                        <p>Financial tools and scaling for MSMEs.</p>
+                        <div class="sc-footer">
+                            <button class="upvote-btn">▲ Upvote</button>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="startup-card glass tilt-element animate-on-scroll">
+                        <div class="sc-header">
+                            <h3>LocalTaste</h3>
+                            <span class="sc-category">Food & Bev</span>
+                        </div>
+                        <p>Exploring authentic regional food brands across India.</p>
+                        <div class="sc-footer">
+                            <button class="upvote-btn">▲ Upvote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEADERBOARD -->
+            <div class="leaderboard-wrap animate-on-scroll">
+                <div class="leaderboard-card glass">
+                    <h3>🔥 Trending Startups</h3>
+                    <ul class="lb-list">
+                        <li>
+                            <span class="lb-rank">#1</span>
+                            <span class="lb-name">EcoKart</span>
+                            <span class="lb-val">245 Upvotes</span>
+                        </li>
+                        <li>
+                            <span class="lb-rank">#2</span>
+                            <span class="lb-name">AgroLink</span>
+                            <span class="lb-val">180 Upvotes</span>
+                        </li>
+                        <li>
+                            <span class="lb-rank">#3</span>
+                            <span class="lb-name">FinBuddy</span>
+                            <span class="lb-val">150 Upvotes</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INVESTORS SECTION -->
+    <section class="investors-section" id="investors">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title center">Meet the Investors</h2>
+                <p class="center">Looking for the next big startup built from Bharat.</p>
+            </div>
+            <div class="investor-grid">
+                <div class="investor-card glass tilt-element animate-on-scroll">
+                    <div class="inv-img-wrap">
+                        <div class="inv-placeholder"></div>
+                    </div>
+                    <h3>Rahul Sharma</h3>
+                    <p class="inv-focus">FinTech, SaaS</p>
+                    <p class="inv-firm">Venture Capital India</p>
+                </div>
+                <div class="investor-card glass tilt-element animate-on-scroll">
+                    <div class="inv-img-wrap">
+                        <div class="inv-placeholder"></div>
+                    </div>
+                    <h3>Priya Patel</h3>
+                    <p class="inv-focus">D2C, Consumer</p>
+                    <p class="inv-firm">Growth Fund</p>
+                </div>
+                <div class="investor-card glass tilt-element animate-on-scroll">
+                    <div class="inv-img-wrap">
+                        <div class="inv-placeholder"></div>
+                    </div>
+                    <h3>Amit Kumar</h3>
+                    <p class="inv-focus">AgriTech, Bharat-focused</p>
+                    <p class="inv-firm">Seed Partners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT KAROSTARTUP -->
+    <section class="community-section" id="community">
+        <div class="container">
+            <div class="ks-card glass animate-on-scroll">
+                <div class="ks-header">
+                    <h2>Powered by KaroStartup</h2>
+                    <p>India’s largest startup storytelling platform sharing founder journeys and inspiring entrepreneurs.</p>
+                </div>
+                <div class="ks-footer">
+                    <div class="ks-stat">
+                        <span class="ks-num" data-count="5000">0</span>
+                        <span class="ks-label">Startup Stories</span>
+                    </div>
+                    <div class="ks-stat">
+                        <span class="ks-num" data-count="1000000">0</span>
+                        <span class="ks-label">Founder Community</span>
+                    </div>
+                    <div class="ks-stat">
+                        <span class="ks-num" data-count="100000">0</span>
+                        <span class="ks-label">Monthly Readers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section">
+        <div class="container center animate-on-scroll">
+            <h2 class="cta-title">Ready to Pitch Your Startup?</h2>
+            <div class="cta-btns">
+                <a href="#" class="btn btn-primary btn-lg neon-glow">Apply Now</a>
+                <a href="#" class="btn btn-outline btn-lg">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Karo Pitch • An initiative by KaroStartup</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
