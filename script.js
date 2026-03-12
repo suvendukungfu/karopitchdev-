@@ -10,11 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
         navIsland: document.querySelector(".nav-island"),
         navLinks: document.getElementById("navLinks"),
         mobileToggle: document.getElementById("mobileToggle"),
-        heroRadar: document.querySelector(".radar-discovery-engine"),
-        hoverPanel: document.getElementById("hoverPanel"),
+        heroVisual: document.querySelector(".hero-visual-wrap"),
         spotlight: document.getElementById("spotlightOverlay"),
         closeSpotlight: document.getElementById("closeSpotlight"),
-        nodes: document.querySelectorAll(".node-point"),
         counters: document.querySelectorAll(".ks-num[data-count]"),
         tiltItems: document.querySelectorAll(".tilt-element"),
         cursorGlow: document.getElementById("cursorGlow"),
@@ -66,41 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // --- 3. Discovery Engine (Radar) ---
-    // Update Hover Panel Data
-    const updateHoverPanel = (node) => {
-        const d = node.dataset;
-        document.getElementById("hp-name").textContent = d.startup;
-        document.getElementById("hp-cat").textContent = d.cat;
-        document.getElementById("hp-stage").textContent = d.stage;
-        document.getElementById("hp-loc").textContent = d.loc;
-        document.getElementById("hp-votes").textContent = d.votes;
-        elements.hoverPanel?.classList.add("visible");
-    };
-
-    // Open Spotlight Modal
-    const openSpotlight = (node) => {
-        const d = node.dataset;
-        document.getElementById("sl-founder").textContent = d.founder;
-        document.getElementById("sl-startup").textContent = d.startup;
-        document.getElementById("sl-cat").textContent = d.cat;
-        document.getElementById("sl-stage").textContent = d.stage;
-        document.getElementById("sl-pitch").textContent = d.pitch;
-        
-        elements.spotlight?.classList.add("active");
-        document.body.style.overflow = "hidden"; // Prevent background scroll
-    };
-
-    elements.nodes.forEach(node => {
-        node.addEventListener("mouseenter", () => updateHoverPanel(node));
-        node.addEventListener("mouseleave", () => elements.hoverPanel?.classList.remove("visible"));
-        node.addEventListener("click", (e) => {
-            e.stopPropagation();
-            openSpotlight(node);
-        });
-    });
-
-    // Close Spotlight
+    // --- 3. Spotlight Interface ---
+    // (Used for future story expansion or details)
     const closeSpotlight = () => {
         elements.spotlight?.classList.remove("active");
         document.body.style.overflow = "";

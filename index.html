@@ -45,65 +45,80 @@
 
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
-        <!-- Status Indicator -->
-        <div class="platform-status-bar animate-fade">
-            <span class="status-dot"></span>
-            <span class="status-text">LIVE ECOSYSTEM SCAN: 24 NEW STARTUPS DISCOVERED FROM BHARAT TODAY</span>
-        </div>
-
-        <div class="container hero-container">
-            <div class="hero-text-content">
-                <p class="hero-eyebrow animate-up">Discover the next generation of founders building from Bharat.</p>
+        <div class="hero-glow-mesh"></div>
+        <div class="container hero-container-saas">
+            <div class="hero-text-centered">
+                <div class="hero-badge animate-up">Built for Bharat Founders 🇮🇳</div>
                 <h1 class="hero-title animate-up">Pitch Your Startup to <br><span class="highlight-text">India’s Top Investors</span></h1>
-                <p class="hero-subtext animate-up">Karo Pitch helps founders across India pitch their startups directly to investors and raise funding.</p>
+                <p class="hero-subtext animate-up">Karo Pitch helps founders across India pitch their startups directly to investors and raise funding through curated discovery tools.</p>
                 <div class="hero-btns animate-up">
                     <a href="#" class="btn btn-primary btn-lg neon-glow">Apply to Pitch</a>
                     <a href="#startups" class="btn btn-outline btn-lg">Explore Startups</a>
                 </div>
             </div>
 
-            <!-- DISCOVERY RADAR -->
-            <div class="radar-discovery-engine animate-fade">
-                <div class="radar-wrap">
-                    <div class="radar-base">
-                        <div class="radar-grid"></div>
-                        <div class="radar-sweep"></div>
-                        
-                        <!-- Interactive Startup Nodes -->
-                        <div class="node-point tilt-element" data-startup="EcoKart" data-cat="D2C" data-stage="Seed" data-loc="Indore" data-votes="245" data-founder="Ananya Sharma" data-pitch="Sustainable supply chain platform for eco-friendly brands.">
-                            <div class="node-core"></div>
-                            <div class="node-echo"></div>
+            <div class="hero-visual-wrap animate-fade">
+                <!-- SaaS Dashboard Preview -->
+                <div class="dashboard-preview-window glass tilt-element">
+                    <div class="dash-nav">
+                        <div class="dash-dots"><span></span><span></span><span></span></div>
+                        <div class="dash-search">Search Investors & Founders...</div>
+                    </div>
+                    <div class="dash-body">
+                        <div class="dash-sidebar-mock">
+                            <div class="mock-item active"></div>
+                            <div class="mock-item"></div>
+                            <div class="mock-item"></div>
+                            <div class="mock-item"></div>
                         </div>
-
-                        <div class="node-point tilt-element" style="top: 30%; right: 20%;" data-startup="AgroLink" data-cat="AgriTech" data-stage="Pre-Seed" data-loc="Nashik" data-votes="180" data-founder="Rajiv Verma" data-pitch="Direct-to-market platform connecting marginalized farmers to urban consumers.">
-                            <div class="node-core"></div>
-                            <div class="node-echo"></div>
-                        </div>
-
-                        <div class="node-point tilt-element" style="bottom: 25%; left: 35%;" data-startup="FinBuddy" data-cat="FinTech" data-stage="Angel" data-loc="Patna" data-votes="150" data-founder="Siddharth Jha" data-pitch="AI-driven credit scoring for MSMEs in Tier-2 and Tier-3 cities.">
-                            <div class="node-core"></div>
-                            <div class="node-echo"></div>
-                        </div>
-
-                        <div class="radar-center">
-                            <div class="center-icon">▲</div>
+                        <div class="dash-main-mock">
+                            <div class="dash-header-mock">
+                                <div class="mock-stat"></div>
+                                <div class="mock-stat"></div>
+                                <div class="mock-stat"></div>
+                            </div>
+                            <div class="dash-grid-mock">
+                                <div class="mock-card"></div>
+                                <div class="mock-card"></div>
+                                <div class="mock-card"></div>
+                                <div class="mock-card"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hover Info Panel (Dynamic) -->
-                <div class="hover-info-panel" id="hoverPanel">
-                    <h4 id="hp-name">Startup</h4>
-                    <div class="hp-meta">
-                        <span id="hp-cat">Category</span> • <span id="hp-stage">Stage</span>
+                <!-- Floating Metric Panels -->
+                <div class="floating-panel fp-1 glass tilt-element">
+                    <div class="fp-icon">👥</div>
+                    <div class="fp-content">
+                        <strong>Founder Network</strong>
+                        <span>5000+ Stories</span>
                     </div>
-                    <div class="hp-footer">
-                        <span id="hp-loc">Location</span>
-                        <span class="hp-votes">▲ <span id="hp-votes">0</span> Upvotes</span>
+                </div>
+                <div class="floating-panel fp-2 glass tilt-element">
+                    <div class="fp-icon">📡</div>
+                    <div class="fp-content">
+                        <strong>Startup Discovery</strong>
+                        <span>Real-time Scan</span>
+                    </div>
+                </div>
+                <div class="floating-panel fp-3 glass tilt-element">
+                    <div class="fp-icon">🔑</div>
+                    <div class="fp-content">
+                        <strong>Investor Access</strong>
+                        <span>Direct Vetting</span>
+                    </div>
+                </div>
+                <div class="floating-panel fp-4 glass tilt-element">
+                    <div class="fp-icon">🎤</div>
+                    <div class="fp-content">
+                        <strong>Pitch Events</strong>
+                        <span>Monthly Cohorts</span>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
         <!-- FOUNDER SPOTLIGHT PANEL (Overlay) -->
         <div class="spotlight-overlay" id="spotlightOverlay">
@@ -131,20 +146,27 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section class="about-section" id="about">
         <div class="container grid-2">
             <div class="about-content animate-on-scroll">
-                <h2 class="section-title">Bridging the Gap</h2>
-                <p>Thousands of founders across India are building powerful businesses but lack access to investors.</p>
-                <p>Karo Pitch bridges this gap by creating curated pitch events and a discovery platform connecting founders and investors.</p>
+                <h2 class="section-title">The Bharat Mission</h2>
+                <div class="about-glass-panels">
+                    <div class="problem-panel glass">
+                        <span class="tag tag-problem">PROBLEM</span>
+                        <p>Founders across Bharat struggle to access capital, high-end visibility, and elite investor networks.</p>
+                    </div>
+                    <div class="solution-panel glass">
+                        <span class="tag tag-success">SOLUTION</span>
+                        <p>Karo Pitch connects founders with investors through curative pitch events and sophisticated discovery tools.</p>
+                    </div>
+                </div>
             </div>
             <div class="about-visual animate-on-scroll">
                 <div class="spatial-card glass tilt-element premium-about-card">
                     <img src="images/hero-about.png" class="about-hero-img" alt="Founder Pitching">
                     <div class="card-overlay-content">
-                        <h3>Curated Connections</h3>
-                        <p>Designed for founders from Bharat.</p>
+                        <h3>Institutional Trust</h3>
+                        <p>Bridging Bharat's vision with global capital.</p>
                     </div>
                 </div>
             </div>
@@ -209,26 +231,26 @@
                             <svg class="step-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                             <div class="step-glow"></div>
                         </div>
-                        <h3>Apply with deck</h3>
-                        <p>Submit your startup vision.</p>
+                        <h3>Apply</h3>
+                        <p>Submit your deck.</p>
                     </div>
                     <!-- Step 2 -->
                     <div class="pipeline-step">
-                        <div class="step-icon-wrap tilt-element" title="Selected startups are vetted by experts">
+                        <div class="step-icon-wrap tilt-element" title="Startups are vetted by experts">
                             <svg class="step-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                             <div class="step-glow"></div>
                         </div>
-                        <h3>Get shortlisted</h3>
-                        <p>Vetted by KaroStartup.</p>
+                        <h3>Shortlist</h3>
+                        <p>Get vetted by experts.</p>
                     </div>
                     <!-- Step 3 -->
                     <div class="pipeline-step">
-                        <div class="step-icon-wrap tilt-element" title="Live presentation to a panel of investors">
+                        <div class="step-icon-wrap tilt-element" title="Live presentation to investors">
                             <svg class="step-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
                             <div class="step-glow"></div>
                         </div>
-                        <h3>Pitch live</h3>
-                        <p>Present directly to investors.</p>
+                        <h3>Pitch</h3>
+                        <p>Present to panel.</p>
                     </div>
                     <!-- Step 4 -->
                     <div class="pipeline-step">
@@ -236,8 +258,8 @@
                             <svg class="step-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-3 5-3"></path><path d="M12 15v5s3.03-.55 5-2c2.2-1.62 3-5 3-5"></path></svg>
                             <div class="step-glow"></div>
                         </div>
-                        <h3>Raise & Scale</h3>
-                        <p>Close funding and scale.</p>
+                        <h3>Raise Funding</h3>
+                        <p>Close and scale.</p>
                     </div>
                 </div>
             </div>
