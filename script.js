@@ -1,230 +1,202 @@
 /* ===========================
    KARO PITCH — Interaction Layer
+   Refined for Stability & Precision
    =========================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const spotlightOverlay = document.getElementById("spotlightOverlay");
-  const spotlightCard = spotlightOverlay?.querySelector(".spotlight-card");
-  const closeSpotlight = document.getElementById("closeSpotlight");
+    // --- 1. Selection & Initialization ---
+    const elements = {
+        navbar: document.getElementById("navbar"),
+        navIsland: document.querySelector(".nav-island"),
+        navLinks: document.getElementById("navLinks"),
+        mobileToggle: document.getElementById("mobileToggle"),
+        heroRadar: document.querySelector(".radar-discovery-engine"),
+        hoverPanel: document.getElementById("hoverPanel"),
+        spotlight: document.getElementById("spotlightOverlay"),
+        closeSpotlight: document.getElementById("closeSpotlight"),
+        nodes: document.querySelectorAll(".node-point"),
+        counters: document.querySelectorAll(".ks-num[data-count]"),
+        tiltItems: document.querySelectorAll(".tilt-element"),
+        cursorGlow: document.getElementById("cursorGlow"),
+        magneticBtns: document.querySelectorAll(".btn")
+    };
 
-  const hoverPanel = document.getElementById("hoverPanel");
-  const hoverName = document.getElementById("hp-name");
-  const hoverCategory = document.getElementById("hp-cat");
-  const hoverStage = document.getElementById("hp-stage");
-  const hoverLocation = document.getElementById("hp-loc");
-  const hoverVotes = document.getElementById("hp-votes");
-
-  const spotlightFounder = document.getElementById("sl-founder");
-  const spotlightStartup = document.getElementById("sl-startup");
-  const spotlightCategory = document.getElementById("sl-cat");
-  const spotlightStage = document.getElementById("sl-stage");
-  const spotlightPitch = document.getElementById("sl-pitch");
-
-  const navBar = document.getElementById("navbar");
-  const navLinks = document.getElementById("navLinks");
-  const mobileToggle = document.getElementById("mobileToggle");
-
-  const discoveryNodes = document.querySelectorAll(".node-point");
-  const tiltElements = document.querySelectorAll(".tilt-element");
-  const revealOnScroll = document.querySelectorAll(".animate-on-scroll");
-  const introAnimated = document.querySelectorAll(".animate-up, .animate-fade");
-  const counters = document.querySelectorAll(".ks-num[data-count]");
-  const upvoteButtons = document.querySelectorAll(".upvote-btn");
-
-  let hoverHideTimer;
-
-  const setNavScrolled = () => {
-    if (!navBar) return;
-    navBar.classList.toggle("scrolled", window.scrollY > 12);
-  };
-
-  const openSpotlight = (data) => {
-    if (!spotlightOverlay) return;
-    if (spotlightFounder) spotlightFounder.textContent = data.founder;
-    if (spotlightStartup) spotlightStartup.textContent = data.startup;
-    if (spotlightCategory) spotlightCategory.textContent = data.category;
-    if (spotlightStage) spotlightStage.textContent = data.stage;
-    if (spotlightPitch) spotlightPitch.textContent = data.pitch;
-    spotlightOverlay.classList.add("active");
-    document.body.classList.add("modal-open");
-  };
-
-  const closeSpotlightOverlay = () => {
-    if (!spotlightOverlay) return;
-    spotlightOverlay.classList.remove("active");
-    document.body.classList.remove("modal-open");
-  };
-
-  const setHoverPanel = (node) => {
-    if (!hoverPanel) return;
-    if (hoverName) hoverName.textContent = node.dataset.startup || "Startup";
-    if (hoverCategory) hoverCategory.textContent = node.dataset.cat || "Category";
-    if (hoverStage) hoverStage.textContent = node.dataset.stage || "Stage";
-    if (hoverLocation) hoverLocation.textContent = node.dataset.loc || "Location";
-    if (hoverVotes) hoverVotes.textContent = node.dataset.votes || "0";
-    hoverPanel.classList.add("visible");
-  };
-
-  const hideHoverPanel = () => {
-    if (!hoverPanel) return;
-    hoverPanel.classList.remove("visible");
-  };
-
-  introAnimated.forEach((element, index) => {
-    setTimeout(() => {
-      element.classList.add("visible");
-    }, 100 + index * 90);
-  });
-
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.15 },
-  );
-  revealOnScroll.forEach((element) => revealObserver.observe(element));
-
-  const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const element = entry.target;
-        const target = Number.parseInt(element.getAttribute("data-count"), 10);
-        if (!Number.isFinite(target)) {
-          observer.unobserve(element);
-          return;
+    // --- Cursor Glow Evolution ---
+    window.addEventListener("mousemove", (e) => {
+        if (elements.cursorGlow) {
+            elements.cursorGlow.style.opacity = "1";
+            elements.cursorGlow.style.left = e.clientX + "px";
+            elements.cursorGlow.style.top = e.clientY + "px";
         }
-        const durationMs = 1600;
-        const start = performance.now();
+    });
 
-        const tick = (now) => {
-          const progress = Math.min((now - start) / durationMs, 1);
-          const value = Math.floor(target * progress);
-          element.textContent = value.toLocaleString("en-IN");
-          if (progress < 1) requestAnimationFrame(tick);
+    window.addEventListener("mouseout", () => {
+        if (elements.cursorGlow) elements.cursorGlow.style.opacity = "0";
+    });
+
+    // --- Magnetic Buttons Interface ---
+    elements.magneticBtns.forEach(btn => {
+        btn.addEventListener("mousemove", (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.transform = `translate(0, 0)`;
+        });
+    });
+
+    // --- 2. Navigation State ---
+    const handleScroll = () => {
+        if (window.scrollY > 20) {
+            elements.navbar?.classList.add("scrolled");
+            elements.navIsland?.classList.add("scrolled");
+        } else {
+            elements.navbar?.classList.remove("scrolled");
+            elements.navIsland?.classList.remove("scrolled");
+        }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // --- 3. Discovery Engine (Radar) ---
+    // Update Hover Panel Data
+    const updateHoverPanel = (node) => {
+        const d = node.dataset;
+        document.getElementById("hp-name").textContent = d.startup;
+        document.getElementById("hp-cat").textContent = d.cat;
+        document.getElementById("hp-stage").textContent = d.stage;
+        document.getElementById("hp-loc").textContent = d.loc;
+        document.getElementById("hp-votes").textContent = d.votes;
+        elements.hoverPanel?.classList.add("visible");
+    };
+
+    // Open Spotlight Modal
+    const openSpotlight = (node) => {
+        const d = node.dataset;
+        document.getElementById("sl-founder").textContent = d.founder;
+        document.getElementById("sl-startup").textContent = d.startup;
+        document.getElementById("sl-cat").textContent = d.cat;
+        document.getElementById("sl-stage").textContent = d.stage;
+        document.getElementById("sl-pitch").textContent = d.pitch;
+        
+        elements.spotlight?.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent background scroll
+    };
+
+    elements.nodes.forEach(node => {
+        node.addEventListener("mouseenter", () => updateHoverPanel(node));
+        node.addEventListener("mouseleave", () => elements.hoverPanel?.classList.remove("visible"));
+        node.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openSpotlight(node);
+        });
+    });
+
+    // Close Spotlight
+    const closeSpotlight = () => {
+        elements.spotlight?.classList.remove("active");
+        document.body.style.overflow = "";
+    };
+    elements.closeSpotlight?.addEventListener("click", closeSpotlight);
+    elements.spotlight?.addEventListener("click", (e) => {
+        if (e.target === elements.spotlight) closeSpotlight();
+    });
+
+    // --- 4. 3D Tilt Logic (Premium Motion) ---
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (!isMobile) {
+        elements.tiltItems.forEach(item => {
+            // Skip nodes as they have complex parent rotations
+            if (item.classList.contains('node-point')) return;
+
+            item.addEventListener("mousemove", (e) => {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            item.addEventListener("mouseleave", () => {
+                item.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+    }
+
+    // --- 5. Scroll Reveal Engine ---
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".animate-on-scroll, .animate-up, .animate-fade").forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // --- 6. Number Counter (Stat Reveal) ---
+    const animateValue = (el) => {
+        const target = parseInt(el.dataset.count);
+        const duration = 2000;
+        let start = 0;
+        const startTime = performance.now();
+
+        const counterStep = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const value = Math.floor(progress * target);
+            
+            el.textContent = value.toLocaleString() + (target >= 1000 ? "+" : "");
+            
+            if (progress < 1) {
+                requestAnimationFrame(counterStep);
+            }
         };
+        requestAnimationFrame(counterStep);
+    };
 
-        requestAnimationFrame(tick);
-        observer.unobserve(element);
-      });
-    },
-    { threshold: 0.4 },
-  );
-  counters.forEach((element) => counterObserver.observe(element));
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateValue(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
 
-  discoveryNodes.forEach((node) => {
-    node.addEventListener("mouseenter", () => {
-      clearTimeout(hoverHideTimer);
-      setHoverPanel(node);
+    elements.counters.forEach(c => counterObserver.observe(c));
+
+    // --- 7. Upvote Mechanism ---
+    document.querySelectorAll(".upvote-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            this.classList.toggle("active");
+            this.textContent = this.classList.contains("active") ? "▲ Upvoted" : "▲ Upvote";
+        });
     });
 
-    node.addEventListener("mouseleave", () => {
-      hoverHideTimer = setTimeout(hideHoverPanel, 120);
+    // --- 8. Mobile Menu Toggle ---
+    elements.mobileToggle?.addEventListener("click", () => {
+        elements.navLinks?.classList.toggle("active");
+        elements.mobileToggle?.classList.toggle("active");
     });
 
-    node.addEventListener("click", (event) => {
-      event.stopPropagation();
-      openSpotlight({
-        founder: node.dataset.founder || "Founder",
-        startup: node.dataset.startup || "Startup",
-        category: node.dataset.cat || "Category",
-        stage: node.dataset.stage || "Stage",
-        pitch: node.dataset.pitch || "Pitch summary unavailable.",
-      });
+    // Close mobile menu on link click
+    elements.navLinks?.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            elements.navLinks?.classList.remove("active");
+            elements.mobileToggle?.classList.remove("active");
+        });
     });
-  });
-
-  if (hoverPanel) {
-    hoverPanel.addEventListener("mouseenter", () => {
-      clearTimeout(hoverHideTimer);
-    });
-    hoverPanel.addEventListener("mouseleave", hideHoverPanel);
-  }
-
-  if (closeSpotlight) {
-    closeSpotlight.addEventListener("click", closeSpotlightOverlay);
-  }
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeSpotlightOverlay();
-  });
-
-  if (spotlightOverlay && spotlightCard) {
-    spotlightOverlay.addEventListener("click", (event) => {
-      if (!spotlightCard.contains(event.target)) closeSpotlightOverlay();
-    });
-  }
-
-  const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
-  if (supportsFinePointer) {
-    tiltElements.forEach((element) => {
-      if (element.classList.contains("node-point")) return;
-      element.addEventListener("mousemove", (event) => {
-        const rect = element.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const rotateX = ((y - rect.height / 2) / rect.height) * -10;
-        const rotateY = ((x - rect.width / 2) / rect.width) * 10;
-        element.style.transform =
-          "perspective(1200px) rotateX(" +
-          rotateX +
-          "deg) rotateY(" +
-          rotateY +
-          "deg) translateZ(0)";
-      });
-
-      element.addEventListener("mouseleave", () => {
-        element.style.transform = "";
-      });
-    });
-  }
-
-  upvoteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const isActive = button.classList.toggle("active");
-      button.textContent = isActive ? "▲ Upvoted" : "▲ Upvote";
-    });
-  });
-
-  const closeMobileMenu = () => {
-    if (!navLinks || !mobileToggle) return;
-    navLinks.classList.remove("active");
-    mobileToggle.classList.remove("active");
-    mobileToggle.setAttribute("aria-expanded", "false");
-  };
-
-  if (mobileToggle && navLinks) {
-    mobileToggle.setAttribute("aria-expanded", "false");
-    mobileToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("active");
-      mobileToggle.classList.toggle("active", isOpen);
-      mobileToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMobileMenu);
-    });
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (event) => {
-      const targetId = anchor.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-      const targetElement = document.querySelector(targetId);
-      if (!targetElement) return;
-
-      event.preventDefault();
-      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
-  setNavScrolled();
-  window.addEventListener("scroll", setNavScrolled, { passive: true });
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) closeMobileMenu();
-  });
 });

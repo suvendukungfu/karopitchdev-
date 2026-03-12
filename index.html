@@ -11,15 +11,18 @@
 </head>
 <body class="spatial-ui">
 
+    <!-- Interactive Layer -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
     <!-- Ambient Environment -->
     <div class="spatial-bg-wrapper">
         <div class="glow-orb orb-primary"></div>
         <div class="glow-orb orb-secondary"></div>
     </div>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar glass" id="navbar">
-        <div class="container nav-wrap">
+    <!-- NAVIGATION (Floating Island Style) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-island glass">
             <a href="#" class="nav-logo">
                 <span class="logo-mark">▲</span> Karo Pitch
             </a>
@@ -27,14 +30,13 @@
             <div class="nav-links" id="navLinks">
                 <a href="#startups">Startups</a>
                 <a href="#investors">Investors</a>
-                <a href="#how-it-works">How It Works</a>
+                <a href="#how-it-works">Process</a>
                 <a href="#community">Community</a>
-                <a href="#about">About</a>
             </div>
 
             <div class="nav-actions">
-                <a href="#" class="btn btn-primary neon-glow">Apply to Pitch</a>
-                <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-controls="navLinks">
+                <a href="#" class="apply-pill btn-primary">Apply</a>
+                <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Menu">
                     <span></span><span></span><span></span>
                 </button>
             </div>
@@ -43,6 +45,12 @@
 
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
+        <!-- Status Indicator -->
+        <div class="platform-status-bar animate-fade">
+            <span class="status-dot"></span>
+            <span class="status-text">LIVE ECOSYSTEM SCAN: 24 NEW STARTUPS DISCOVERED FROM BHARAT TODAY</span>
+        </div>
+
         <div class="container hero-container">
             <div class="hero-text-content">
                 <p class="hero-eyebrow animate-up">Discover the next generation of founders building from Bharat.</p>
@@ -382,14 +390,45 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- UPDATED FOOTER -->
     <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Karo Pitch • An initiative by KaroStartup</p>
-            <div class="footer-bottom-links">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <span class="logo-mark">▲</span> Karo Pitch
+                </a>
+                <p class="footer-desc">Empowering founders from Tier-2 and Tier-3 cities to scale Bharat's potential.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">Li</a>
+                    <a href="#" class="social-icon">Tw</a>
+                    <a href="#" class="social-icon">Ig</a>
+                </div>
+            </div>
+            
+            <div class="footer-links-col">
+                <h4>Platform</h4>
+                <a href="#startups">Startup Discovery</a>
+                <a href="#investors">Investor Network</a>
+                <a href="#how-it-works">The Process</a>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>Ecosystem</h4>
+                <a href="#">KaroStartup Stories</a>
+                <a href="#">Events</a>
+                <a href="#">Community Feed</a>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>Support</h4>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
             </div>
+        </div>
+        
+        <div class="footer-bottom center">
+            <p>&copy; 2026 Karo Pitch • An initiative by KaroStartup</p>
         </div>
     </footer>
 
