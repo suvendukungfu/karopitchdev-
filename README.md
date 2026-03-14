@@ -1,4 +1,4 @@
-# ▲ Karo Pitch: The Startup Discovery Command Center
+#Karo Pitch: The Startup Discovery Command Center
 
 [![Internship Assignment](https://img.shields.io/badge/KaroStartup-Intern_Assignment-blueviolet?style=for-the-badge)](https://www.instagram.com/karopitch/)
 [![Design System](https://img.shields.io/badge/Style-SaaS_Premium-6366F1?style=for-the-badge)](https://stripe.com)
@@ -7,7 +7,7 @@
 
 ---
 
-## 🏗️ Executive Summary
+ Executive Summary
 
 **Karo Pitch** is a high-performance, single-page "Command Center" designed for **KaroStartup**. It transitions traditional investor-pitch narratives into an immersive SaaS discovery platform. The interface is engineered to establish **Institutional Trust** while maintaining high accessibility for founders across India’s emerging startup hubs.
 
@@ -15,7 +15,7 @@ This repository serves as a technical demonstration of modern frontend architect
 
 ---
 
-## 💎 Strategic Design Philosophy
+ Strategic Design Philosophy
 
 ### 1. The "Spatial Command Center" Aesthetic
 Instead of a standard marketing site, we implemented a **Command Center** framework. 
@@ -30,7 +30,7 @@ The UI explicitly addresses the struggle of Tier-2 and Tier-3 city founders.
 
 ---
 
-## 🛠️ Technical Architecture
+ Technical Architecture
 
 ### Core Stack
 - **Engine**: Semantic HTML5 & CSS3 (Custom Properties / Flexbox / CSS Grid).
@@ -44,8 +44,7 @@ The UI explicitly addresses the struggle of Tier-2 and Tier-3 city founders.
 - **Mobile-Adaptive SaaS UI**: Re-engineered complex dashboard visualizations to stack into a readable vertical "Discovery Feed" on mobile hardware.
 
 ---
-
-## 📁 Project Blueprint
+ Project Blueprint
 
 ```text
 .
@@ -57,7 +56,7 @@ The UI explicitly addresses the struggle of Tier-2 and Tier-3 city founders.
 
 ---
 
-## 🚀 Getting Started
+ Getting Started
 
 ### Local Development
 The project is built as a lean static engine. No build step required.
@@ -78,7 +77,7 @@ The project is built as a lean static engine. No build step required.
 
 ---
 
-## 🏁 Assignment Deliverables Context
+ Assignment Deliverables Context
 
 - **AI Tooling**: Engineered using **Antigravity (Advanced Agentic AI)**.
 - **Decision Logic**: Priority was given to **Institutional Clarity**. Every pixel is designed to convince an investor that Karo Pitch is a sophisticated, data-driven bridge to India's next unicorn.
@@ -86,7 +85,7 @@ The project is built as a lean static engine. No build step required.
 
 ---
 
-## 📈 Future Roadmap
+ Future Roadmap
 
 1. **Dashboard v2**: Live real-time startup upvoting via Firebase/Supabase.
 2. **Founder Portal**: Secure pitch-deck submission pipeline with automated vetting.
@@ -94,7 +93,7 @@ The project is built as a lean static engine. No build step required.
 
 ---
 
-## ✍️ Author
+ Author
 **Suvendu Sahoo**  
 *Creative Technologist & KaroStartup Intern Candidate*
 
